@@ -1,9 +1,10 @@
 package states
 
-class ReadingState: State {
+class ValidBinaryState: State {
     override fun consumeLetter(letter: String) =
         when(letter) {
-            in "01" -> this
+            "1" -> this
+            "0" -> LookingForOneState()
             else -> InvalidState()
     }
 }
